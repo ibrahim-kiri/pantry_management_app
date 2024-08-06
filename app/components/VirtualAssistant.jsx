@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useState } from 'react'
-import { Box, Button, Dialog, DialogContent, DialogTitle, Fab, IconButton, List, ListItem, ListItemText, TextField } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, IconButton, TextField } from '@mui/material';
 import { Chat as ChatIcon, Close as CloseIcon } from '@mui/icons-material';
 
 const VirtualAssistant = () => {
     const [open, setOpen] = useState(false);
-    const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState('');
+    const [message, setMessage] = useState([]);
+    const [conversation, setConversation] = useState([
+        { sender: 'assistant', text: 'Hi! I am your pantry assistant. How can I help you?' }
+    ]);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -18,9 +20,15 @@ const VirtualAssistant = () => {
     };
 
     const handleSendMessage = () => {
-        if (newMessage.trim() !== '') {
-            setMessages([...messages, { text: newMessage, sender: 'user' }]);
-            setNewMessage('');
+        if (message.trim() !== '') {
+            setConversation([...conversation, { sender: 'user', text: message }]);
+            setMessage('');
+            setTimeout(() => {
+                setConversation((prevConversation) => [
+                    ...prevConversation,
+                    { sender: 'assistant', text: 'Got it! What else can I do for you?' }
+                ]);
+            }, 1000);
         }
     };
 
@@ -52,12 +60,11 @@ const VirtualAssistant = () => {
                 marginRight: '20px',
                 width: '400px',
                 maxWidth: '100%',
+                borderRadius: '12px'
             },
         }}
       >
         <DialogTitle>
-            Pantry Assistant
-            <hr />
             <IconButton
                 aria-label="close"
                 onClick={handleClose}
@@ -65,42 +72,81 @@ const VirtualAssistant = () => {
                     position: 'absolute',
                     right: 8,
                     top: 8,
+                    backgroundColor: 'blue',
+                    color: 'white',
+                    borderRadius: '50%',
+                    padding: 1,
+                    width: 20,
+                    height: 20,
+                    '&:hover': {
+                        backgroundColor: 'darkblue',
+                    },
                 }}
             >
-                <CloseIcon />
+                <CloseIcon sx={{ fontSize: 18 }} />
             </IconButton>
         </DialogTitle>
-        <DialogContent>
-            <h4>Hello! How can I assist you today?</h4>
-            <Box sx={{ minHeight: '250px', display: 'flex', flexDirection: 'column'}}>
-                <List sx={{ flexGrow: 1 }}>
-                    {messages.map((message, index) => (
-                        <ListItem key={index}>
-                            <ListItemText 
-                                primary={message.text}
-                                secondary={message.sender === 'user' ? 'You' : 'Assistant'}
-                            />
-                        </ListItem>
-                    ))}
-                </List>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <TextField 
-                        variant='outlined'
-                        placeholder='Type your message...'
-                        value={newMessage}
-                        onChange={(e) => setNewMessage(e.target.value)}
-                        sx={{ flexGrow: 1, mr: 1 }}
-                    />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleSendMessage}
+        <DialogContent dividers>
+            <Box 
+                sx={{
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    gap: 1,
+                    minHeight: '300px', 
+                    overflowY: 'auto',
+                }}
+            >
+                {conversation.map((msg, index) => (
+                    <Box
+                        key={index}
+                        sx={{
+                            alignSelf: msg.sender === 'user' ? 'flex-end' : 'flex-start',
+                            backgroundColor: msg.sender === 'user' ? 'primary.light' : 'grey.300',
+                            color: msg.sender === 'user' ? 'white' : 'black',
+                            padding: 1,
+                            borderRadius: 1,
+                            maxWidth: '80%',
+                        }}
                     >
-                        Send
-                    </Button>
-                </Box>
+                        {msg.text}
+                    </Box>
+                ))}
             </Box>
         </DialogContent>
+        <DialogActions>
+            <TextField 
+                variant='outlined'
+                size='small'
+                fullWidth
+                placeholder='Type a message...'
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyPress = {(e) => {
+                    if (e.key === 'Enter') {
+                        handleSendMessage();
+                    }
+                }}
+                InputProps={{
+                    sx: {
+                        borderRadius: 2,
+                    }
+                }}
+            />
+            <Button
+                onClick={handleSendMessage}
+                sx={{
+                    marginLeft: 1,
+                    borderRadius: 2,
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    '&:hover': {
+                        backgroundColor: 'primary.dark',
+                    },
+                }}
+            >
+                Send
+            </Button>
+        </DialogActions>
       </Dialog>
     </>
   );

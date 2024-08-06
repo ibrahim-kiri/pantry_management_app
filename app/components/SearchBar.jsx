@@ -16,8 +16,8 @@ const SearchBar = ({ setSearchQuery }) => {
                 InputProps={{
                     style: {
                         color: '#f9f9f9',
+                        borderRadius: '12px',
                     },
-                    
                     endAdornment: (
                         <InputAdornment position="start" color="white">
                             <SearchIcon 

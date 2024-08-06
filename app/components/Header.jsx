@@ -17,7 +17,7 @@ const Header = () => (
                 }}
             >
                 <Typography variant="h6" component="div">
-                    Pantry Management App
+                    <h4>Pantry Management App</h4>
                 </Typography>
             </Box>
         </Toolbar>

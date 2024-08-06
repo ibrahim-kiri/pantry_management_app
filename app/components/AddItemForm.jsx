@@ -47,7 +47,14 @@ const AddItemForm = () => {
     };
 
   return (
-    <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
+    <Paper
+        elevation={3} 
+        sx={{ 
+            padding: 3, 
+            mb: 3,
+            borderRadius: '12px',
+        }}
+    >
         <Box 
             component="form"
             onSubmit={handleSubmit}
@@ -70,6 +77,11 @@ const AddItemForm = () => {
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
                 sx={{ mb: 2 }}
+                InputProps={{
+                    style: {
+                        borderRadius: '12px',
+                    },
+                }}
                 required
             />
                     
@@ -81,6 +93,11 @@ const AddItemForm = () => {
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 fullWidth
                 sx={{ mb: 2 }}
+                InputProps={{
+                    style: {
+                        borderRadius: '12px',
+                    },
+                }}
                 required
             />
 
