@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
             <head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Pantry Management App</title>
+                <title>Pantry Organiser</title>
             </head>
             <body>
                 <CssBaseline />

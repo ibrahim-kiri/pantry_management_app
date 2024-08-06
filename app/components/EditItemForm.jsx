@@ -33,7 +33,7 @@ const EditItemForm = ({ item, handleEditClose }) => {
 
   return (
     <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
-        <DialogTitle>Edit Pantry Item</DialogTitle>
+        <DialogTitle sx={{ color: 'blue', fontSize: '18px', fontFamily: 'Poppins' }}>Edit Pantry Item</DialogTitle>
         <DialogContent>
             <Box
                 component="form"
@@ -51,6 +51,11 @@ const EditItemForm = ({ item, handleEditClose }) => {
                     variant='outlined'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    InputProps={{
+                        style: {
+                            borderRadius: '12px',
+                        },
+                    }}
                     required
                 />
 
@@ -60,6 +65,11 @@ const EditItemForm = ({ item, handleEditClose }) => {
                     type="number"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
+                    InputProps={{
+                        style: {
+                            borderRadius: '12px',
+                        },
+                    }}
                     required
                 />
 
@@ -82,10 +92,10 @@ const EditItemForm = ({ item, handleEditClose }) => {
                 </label>
 
                 <DialogActions>
-                    <Button onClick={handleEditClose} color="secondary">
+                    <Button sx={{fontFamily: 'Poppins' }} variant='contained' onClick={handleEditClose} color="error">
                         Cancel
                     </Button>
-                    <Button variant='contained' color="primary" type="submit">
+                    <Button sx={{fontFamily: 'Poppins' }} variant='contained' color="primary" type="submit">
                         Save
                     </Button>
                 </DialogActions>

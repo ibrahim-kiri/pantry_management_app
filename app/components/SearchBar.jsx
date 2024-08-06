@@ -12,10 +12,9 @@ const SearchBar = ({ setSearchQuery }) => {
                 label="Search"
                 variant="outlined"
                 onChange={(e) => setSearchQuery(e.target.value)}
-                sx={{ width: '300px', borderColor: '#f9f9f9', }}
+                sx={{ width: '300px', fontFamily: 'Poppins' }}
                 InputProps={{
                     style: {
-                        color: '#f9f9f9',
                         borderRadius: '12px',
                     },
                     endAdornment: (

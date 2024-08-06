@@ -114,7 +114,7 @@ const AddItemForm = () => {
                 </IconButton>
                 Upload Image
             </label>
-            <Button variant="contained" color="primary" type="submit">
+            <Button sx={{fontFamily: 'Poppins' }} variant="contained" color="primary" type="submit">
                 Add Item
             </Button>
         </Box>

@@ -135,6 +135,7 @@ const VirtualAssistant = () => {
             <Button
                 onClick={handleSendMessage}
                 sx={{
+                    fontFamily: 'Poppins',
                     marginLeft: 1,
                     borderRadius: 2,
                     backgroundColor: 'primary.main',

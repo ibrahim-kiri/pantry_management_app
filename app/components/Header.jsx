@@ -16,7 +16,7 @@ const Header = () => (
                     height: "100%",
                 }}
             >
-                <Typography variant="h6" component="div">
+                <Typography sx={{fontFamily: 'Poppins' }} variant="h6" component="div">
                     <h3>Pantry Organizer</h3>
                 </Typography>
             </Box>
