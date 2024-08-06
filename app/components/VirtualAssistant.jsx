@@ -104,7 +104,7 @@ const VirtualAssistant = () => {
                             backgroundColor: msg.sender === 'user' ? 'primary.light' : 'grey.300',
                             color: msg.sender === 'user' ? 'white' : 'black',
                             padding: 1,
-                            borderRadius: 1,
+                            borderRadius: 3,
                             maxWidth: '80%',
                         }}
                     >

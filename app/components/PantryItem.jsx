@@ -43,8 +43,8 @@ const PantryItem = ({ item }) => {
                     />
                 )}
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="div"><b>{item.name}</b></Typography>
-                    <Typography variant="body2" color="text.secondary"><b>Quantity: {item.quantity}</b></Typography>
+                    <Typography sx={{ color: 'blue', fontSize: '18px', fontFamily: 'Poppins' }} gutterBottom><b>{item.name}</b></Typography>
+                    <Typography sx={{ color: 'green', fontFamily: 'Poppins'}}>Quantity: {item.quantity}</Typography>
                 </CardContent>
                 <CardActions>
                     <Button size="medium" onClick={() => handleUpdateQuantity(1)}>

@@ -66,7 +66,7 @@ const AddItemForm = () => {
                 '& .MuiButtonBase-root': { m: 1 }
             }}
         >
-            <Typography variant="h5" component="h2" gutterBottom>
+            <Typography sx={{ color: 'black', fontSize: '20px', fontFamily: 'Poppins' }} gutterBottom>
                 Add Pantry Item
             </Typography>
 
