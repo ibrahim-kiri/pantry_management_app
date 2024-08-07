@@ -2,7 +2,7 @@
 
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { useState } from "react";
-import { db } from "../firebase/firebase
+import { db } from "../firebase/firestore";
 import Header from "../components/Header";
 import { Button, Container, Grid } from "@mui/material";
 import SearchBar from "../components/SearchBar";

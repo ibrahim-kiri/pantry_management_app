@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { getDoc } from "firebase/firestore";
 import Header from "../components/Header";
 import { Container } from "@mui/material";
-import Footer from "../components/Footer";
+import EditItemForm from "../components/EditItemForm";
 
 
 const EditItemPage = () => {
@@ -34,9 +34,8 @@ const EditItemPage = () => {
         <div>
             <Header />
             <Container>
-                {item && <ItemForm item={item} onSave={handleSave} />}
+                {item && <EditItemForm item={item} onSave={handleSave} />}
             </Container>
-            <Footer />
         </div>
     );
 };
