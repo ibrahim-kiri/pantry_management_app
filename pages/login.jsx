@@ -38,7 +38,7 @@ const LoginPage = () => {
                     Pantry Organizer
                 </Typography>
                 <Typography sx={{ fontFamily: 'Poppins', mb: 3, color: 'dark-gray' }}  variant="body1" gutterBottom align="center">
-                    "Manage your pantry items efficiently and effectively."
+                    Manage your pantry items efficiently and effectively.
                 </Typography> 
                 <Paper 
                     elevation={6}
