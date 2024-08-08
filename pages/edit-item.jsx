@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getDoc } from "firebase/firestore";
-import Header from "../../components/Header";
+import Header from "@/components/Header";
 import { Container } from "@mui/material";
-import EditItemForm from "../../components/EditItemForm";
+import EditItemForm from "@/components/EditItemForm";
 
 
 const EditItemPage = () => {
