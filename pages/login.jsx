@@ -105,7 +105,7 @@ const LoginPage = () => {
                         </Button>
                     </Box>
                     <Typography sx={{ fontFamily: 'Poppins' }} variant="body2" align="center" mt={2}>
-                        Don't have an account? <Link href="/register">Register here</Link>
+                        Dont have an account? <Link href="/register">Register here</Link>
                     </Typography>
                 </Paper>
             </Box>
