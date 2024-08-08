@@ -3,16 +3,17 @@
 import { Box, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const SearchBar = ({ setSearchQuery }) => {
+const SearchBar = ({ value, onChange }) => {
 
     return (
         <Box my={2} display="flex" justifyContent="center">
             <TextField
+                value={value}
                 fullWidth
                 label="Search"
                 variant="outlined"
-                onChange={(e) => setSearchQuery(e.target.value)}
-                sx={{ width: '300px', fontFamily: 'Poppins' }}
+                onChange={(e) => onChange(e.target.value)}
+                sx={{ width: '300px', fontFamily: 'Poppins', color: 'white' }}
                 InputProps={{
                     style: {
                         borderRadius: '12px',

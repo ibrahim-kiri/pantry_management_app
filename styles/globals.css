@@ -31,3 +31,9 @@ body {
 main {
   position: relative;
 }
+
+@media (max-width: 600px) {
+  .welcome {
+    display: none;
+  }
+}

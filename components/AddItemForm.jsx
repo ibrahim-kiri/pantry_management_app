@@ -6,14 +6,21 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { db, storage } from '../firebase/config';
 import { Box, Button, IconButton, Paper, TextField, Typography } from '@mui/material';
 import { PhotoCamera } from '@mui/icons-material';
+import { useAuth } from '@/context/AuthProvider';
 
 const AddItemForm = () => {
+    const { user } = useAuth();
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [image, setImage] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!user) {
+            console.error('User is not authenticated');
+            return;
+        }
 
         try {
             let imageUrl = null;
@@ -28,6 +35,7 @@ const AddItemForm = () => {
                 name,
                 quantity: parseInt(quantity),
                 imageUrl,
+                userId: user.uid,
             });
             console.log('Document written with ID:', docRef.id);
 
